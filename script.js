@@ -14,32 +14,32 @@
 
         let playing = true 
         while (playing == true) {
-            if (computerPoints != 3 || playerPoints != 3) {
+            if (computerPoints <= 3 && playerPoints <= 3) {
                 let computerSelection = getComputerChoice(choices)
                 let playerSelection = getPlayerChoice()
 
-                console.log(computerSelection)
-                console.log(playerSelection)
+                console.log("Computer: " + computerSelection)
+                console.log("Player: " + playerSelection)
 
                 winner = playRound(computerSelection, playerSelection)
 
-                console.log(winner)
+                console.log("Winner: " + winner) // 1 = player | 2 = computer
 
                 if (winner == 1) {
                     playerPoints = playerPoints + 1
-                    console.log(playerPoints)
+                    console.log("Player Score: " + playerPoints)
 
                 }
                 else if (winner == 2) {
                     computerPoints = computerPoints + 1
-                    console.log(computerPoints)
+                    console.log("Computer Score: " + computerPoints)
                 }
                 else {
-                    
+
                 }
             }
             else {
-                playing == false
+                playing = false
             }
         }
     }
