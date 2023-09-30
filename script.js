@@ -1,21 +1,50 @@
 
-    let choices = ["rock", "paper", "scissors"]
     
-    
-    let computerSelection = getComputerChoice(choices)
-    let playerSelection = getPlayerChoice()
-    
-
-    console.log(computerSelection)
-    console.log(playerSelection)
-
-
-    winner = playRound(computerSelection, playerSelection)
-
     let computerPoints = 0
     let playerPoints = 0
+    let choices = ["rock", "paper", "scissors"]
 
+    game()
     
+   
+
+
+    // run the game  
+    function game() {
+
+        let playing = true 
+        while (playing == true) {
+            if (computerPoints != 3 || playerPoints != 3) {
+                let computerSelection = getComputerChoice(choices)
+                let playerSelection = getPlayerChoice()
+
+                console.log(computerSelection)
+                console.log(playerSelection)
+
+                winner = playRound(computerSelection, playerSelection)
+
+                console.log(winner)
+
+                if (winner == 1) {
+                    playerPoints = playerPoints + 1
+                    console.log(playerPoints)
+
+                }
+                else if (winner == 2) {
+                    computerPoints = computerPoints + 1
+                    console.log(computerPoints)
+                }
+                else {
+                    
+                }
+            }
+            else {
+                playing == false
+            }
+        }
+    }
+
+
     
 
     
@@ -74,8 +103,13 @@
             return 2 
         }
 
-     
+        if (playerSelection == computerSelection) {
+            console.log("It's a tie!")
+            return 3
+        }
     }
+
+
 
 
 
