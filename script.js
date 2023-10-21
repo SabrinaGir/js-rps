@@ -6,9 +6,27 @@
 
     game();
     
-   
-    
+   // create three buttons and select div element
+   let rock = document.createElement('button');
+   let paper = document.createElement('button');
+   let scissors = document.createElement('button');
+   let div = document.querySelector('div')
 
+   // add text to buttons
+   rock.innerText = 'Rock';
+   paper.innerText = 'Paper';
+   scissors.innerText = 'Scissors';
+
+   // append buttons to div
+
+   div.append(rock);
+   div.append(paper);
+   div.append(scissors);
+
+   // add clickable buttons
+
+  
+    
 
     // run the game  
     function game() {
@@ -35,18 +53,9 @@
     }
     
     
-    // checks to make sure player choice is valid
+    // gets players choice from button press
     function getPlayerChoice() {
-        let valid_choice = false;
-
-        while (valid_choice == false) {
-            let playerSelection = prompt("Rock, paper, scissors?").toLowerCase()
-            if (playerSelection == "rock" || playerSelection == "scissors" || playerSelection == "paper") 
-            {
-                valid_choice = true
-                return playerSelection
-            }
-        }
+       
     }
 
     // get random selection from array for computer choice
