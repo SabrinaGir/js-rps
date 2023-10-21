@@ -1,62 +1,28 @@
-    "use strict";
+    'use strict';
     
     let computerPoints = 0;
     let playerPoints = 0;
-    let choices = ["rock", "paper", "scissors"];
+    const choices = ['rock', 'paper', 'scissors'];
+    const buttons = document.querySelectorAll('button')
 
-    game();
-    
-   // create three buttons and select div element
-   let rock = document.createElement('button');
-   let paper = document.createElement('button');
-   let scissors = document.createElement('button');
-   let div = document.querySelector('div')
+    let computerSelection = getComputerChoice(choices);
+    let playerSelection = getPlayerChoice();
 
-   // add text to buttons
-   rock.innerText = 'Rock';
-   paper.innerText = 'Paper';
-   scissors.innerText = 'Scissors';
-
-   // append buttons to div
-
-   div.append(rock);
-   div.append(paper);
-   div.append(scissors);
-
-   // add clickable buttons
-
-  
-    
-
-    // run the game  
-    function game() {
-        
-        let computerSelection = getComputerChoice(choices);
-        let playerSelection = getPlayerChoice();
-
-        console.log("Computer: " + computerSelection);
-        console.log("Player: " + playerSelection);
-
-        let winner = playRound(computerSelection, playerSelection);
-
-        console.log("Winner: " + winner); // 1 = player | 2 = computer
-
-        if (winner == 'player') {
-            playerPoints = playerPoints + 1;
-            console.log("Player Score: " + playerPoints);
-
-        }
-        else if (winner == 'computer') {
-            computerPoints = computerPoints + 1;
-            console.log("Computer Score: " + computerPoints);
-        }
-    }
-    
+    console.log(`Computer: ${computerSelection}`);
+    console.log("Player: " + playerSelection);
     
     // gets players choice from button press
     function getPlayerChoice() {
        
+        let playerChoice;
+        buttons.forEach(button => button.addEventListener('click', () => {
+            playerChoice = button.textContent;
+        }))
+    
+        return playerChoice;
+    
     }
+
 
     // get random selection from array for computer choice
     function getComputerChoice(choices) {
@@ -66,8 +32,7 @@
     return computerChoice
     }
 
-    // figure out who wins a round using 1 for player and 2 for computer
-    // this can probably be done more efficiently. No clue how though.
+    // figure out who wins a round
     function playRound(computerSelection, playerSelection) {
 
         // player wins
@@ -106,6 +71,27 @@
 
 
 
+    // // run the game  
+    // function game() {
+        
+    //     let computerSelection = getComputerChoice(choices);
+    //     let playerSelection = getPlayerChoice();
 
+    //     console.log("Computer: " + computerSelection);
+    //     console.log("Player: " + playerSelection);
 
+    //     let winner = playRound(computerSelection, playerSelection);
 
+    //     console.log("Winner: " + winner); // 1 = player | 2 = computer
+
+    //     if (winner == 'player') {
+    //         playerPoints = playerPoints + 1;
+    //         console.log("Player Score: " + playerPoints);
+
+    //     }
+    //     else if (winner == 'computer') {
+    //         computerPoints = computerPoints + 1;
+    //         console.log("Computer Score: " + computerPoints);
+    //     }
+    // }
+    
