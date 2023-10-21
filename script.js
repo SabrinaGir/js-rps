@@ -1,56 +1,43 @@
-
+    "use strict";
     
-    let computerPoints = 0
-    let playerPoints = 0
-    let choices = ["rock", "paper", "scissors"]
+    let computerPoints = 0;
+    let playerPoints = 0;
+    let choices = ["rock", "paper", "scissors"];
 
-    game()
+    game();
     
    
+    
 
 
     // run the game  
     function game() {
+        
+        let computerSelection = getComputerChoice(choices);
+        let playerSelection = getPlayerChoice();
 
-        let playing = true 
-        while (playing == true) {
-            if (computerPoints <= 3 && playerPoints <= 3) {
-                let computerSelection = getComputerChoice(choices)
-                let playerSelection = getPlayerChoice()
+        console.log("Computer: " + computerSelection);
+        console.log("Player: " + playerSelection);
 
-                console.log("Computer: " + computerSelection)
-                console.log("Player: " + playerSelection)
+        let winner = playRound(computerSelection, playerSelection);
 
-                winner = playRound(computerSelection, playerSelection)
+        console.log("Winner: " + winner); // 1 = player | 2 = computer
 
-                console.log("Winner: " + winner) // 1 = player | 2 = computer
+        if (winner == 'player') {
+            playerPoints = playerPoints + 1;
+            console.log("Player Score: " + playerPoints);
 
-                if (winner == 1) {
-                    playerPoints = playerPoints + 1
-                    console.log("Player Score: " + playerPoints)
-
-                }
-                else if (winner == 2) {
-                    computerPoints = computerPoints + 1
-                    console.log("Computer Score: " + computerPoints)
-                }
-                else {
-
-                }
-            }
-            else {
-                playing = false
-            }
+        }
+        else if (winner == 'computer') {
+            computerPoints = computerPoints + 1;
+            console.log("Computer Score: " + computerPoints);
         }
     }
-
-
     
-
     
     // checks to make sure player choice is valid
     function getPlayerChoice() {
-        let valid_choice = false
+        let valid_choice = false;
 
         while (valid_choice == false) {
             let playerSelection = prompt("Rock, paper, scissors?").toLowerCase()
@@ -76,36 +63,35 @@
 
         // player wins
         if (playerSelection == "rock" && computerSelection == "scissors") {
-            console.log("You win! Rock beats scissors")
-            return 1
+            console.log("You win! Rock beats scissors");
+            return 'player';
         }
         if (playerSelection == "paper" && computerSelection == "rock") {
-            console.log("You win! Paper beats rock")
-            return 1
+            console.log("You win! Paper beats rock");
+            return 'player';
         }
         if (playerSelection == "scissors" && computerSelection == "paper") {
-            console.log("You win! Scissors beats paper")
-            return 1
+            console.log("You win! Scissors beats paper");
+            return 'player';
         }
-
 
         // computer wins
         if (computerSelection == "rock" && playerSelection == "scissors") {
-            console.log("You lose! Rock beats scissors")
-            return 2 
+            console.log("You lose! Rock beats scissors");
+            return 'computer';
         }
         if (computerSelection == "paper" && playerSelection == "rock") {
-            console.log("You lose! Paper beats rock")
-            return 2 
+            console.log("You lose! Paper beats rock");
+            return 'computer';
         }
         if (computerSelection == "scissors" && playerSelection == "paper") {
-            console.log("You lose! Scissors beats paper")
-            return 2 
+            console.log("You lose! Scissors beats paper");
+            return 'computer';
         }
 
         if (playerSelection == computerSelection) {
-            console.log("It's a tie!")
-            return 3
+            console.log("It's a tie!");
+            return 'tie';
         }
     }
 
