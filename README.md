@@ -2,8 +2,14 @@
 Rock Paper Scissors in Javascript 
 
 
-Currently, this game is unfinished and not very fun to play, as you can't see the score properly or who wins unless you go to the console.
+## Project Description 
 
+Create a game of Rock Paper Scissors with a UI using HTML, CSS, and Javascript.
 
-to fix: 
-    -for some reason, the game will continue even once the counter has reached 3
+## Overview 
+
+This project started off using only console.log() to play, before using the images to click on. Overall, I had fun making it and really like the final product. Compared to my landing page, I used sections and avoid divs excepts for styling purposes. I practiced making changes to the DOM, logic, as well as my CSS skills. 
+
+## Attributions 
+
+Icons: Microsoft Fluent UI emojis downloaded from https://www.iconarchive.com/
