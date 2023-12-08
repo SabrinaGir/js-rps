@@ -3,7 +3,7 @@
     let computerPoints = 0;
     let playerPoints = 0;
     const choices = ['rock', 'paper', 'scissors'];
-    const buttons = document.querySelectorAll('button')
+    const imgs = document.querySelectorAll('img')
 
     let computerSelection = getComputerChoice(choices);
     let playerChoice;
@@ -13,12 +13,12 @@
     // run game
     function runGame() {
         
-        buttons.forEach(button => button.addEventListener('click', () => {
+        imgs.forEach(img => img.addEventListener('click', () => {
             
             let computerSelection = getComputerChoice(choices);
             let playerChoice;
             
-            playerChoice = button.textContent;
+            playerChoice = img.id;
             console.log("Computer: " + computerSelection);
             console.log("Player: " + playerChoice);
 
@@ -36,7 +36,6 @@
                 console.log("Computer Score: " + computerPoints);
             }
             
-
         }))
     
     }

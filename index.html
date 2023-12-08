@@ -3,17 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
     <script src="script.js" defer></script>
 
+    <!-- Imported font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
+
+
+    <style> 
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Varela Round', sans-serif;
+    }
+
+    img:hover {
+        cursor: pointer;
+    }
+    
+    
+    </style>
 </head>
 <body>
+    <h1> Rock, Paper, Scissors! </h1>
     <div> 
-        <button> rock </button>
-        <button> paper </button>
-        <button> scissors </button>
+        <img src="assets/Microsoft-Fluentui-Emoji-Flat-Rock-Flat.128.png" alt="image of a rock" id="rock">
+        <img src="assets/Microsoft-Fluentui-Emoji-Flat-Memo-Flat.128.png" alt="image of paper" id="paper">
+        <img src="assets/Microsoft-Fluentui-Emoji-Flat-Scissors-Flat.128.png" alt="image of scissors" id="scissors">
 
+        <!-- <button>rock</button>
+        <button>paper</button>
+        <button>scissors</button> -->
     </div>
+
+    <!-- <div> 
+
+    </div> -->
     
 </body>
 </html>
