@@ -27,6 +27,10 @@
     let enemyPoints = document.createElement('p');
     document.querySelector('#score').append(enemyPoints);
     enemyPoints.innerText = "Computer: 0 ";
+
+    let end = document.createElement('p');
+    document.querySelector('#end').append(end);
+    
     
  
     runGame();
@@ -34,10 +38,10 @@
     // run game
     function runGame() {
         
-        let game = 0;
-        
             imgs.forEach(img => img.addEventListener('click', () => {
-                
+                end.innerText = "";
+                points.innerText = "Player: " + playerPoints;
+                enemyPoints.innerText = "Computer: " + computerPoints;
 
                 let computerSelection = getComputerChoice(choices);
                 playerSelection = img.id;
@@ -72,6 +76,19 @@
 
                     enemyPoints.innerText = "Computer: " + computerPoints;
                 }
+
+                if (playerPoints == 5) {
+                    end.innerText = "You won!";
+                    playerPoints = 0;
+                    computerPoints = 0;
+
+                }
+                else if (computerPoints == 5) {
+                    end.innerText = "You lost!";
+                    playerPoints = 0;
+                    computerPoints = 0;
+                }
+
 
 
             
