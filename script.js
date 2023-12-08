@@ -6,37 +6,77 @@
     const imgs = document.querySelectorAll('img')
 
     let computerSelection = getComputerChoice(choices);
-    let playerChoice;
+    let playerSelection;
+
+
+    // create interface 
+    let computerChoice = document.createElement('p');
+    document.querySelector('#current').append(computerChoice);
+
+
+    let playerChoice = document.createElement('p');
+    document.querySelector('#current').append(playerChoice);
+
+    let result = document.createElement('p');
+    document.querySelector('#current').append(result);
+
+    let points = document.createElement('p');
+    document.querySelector('#score').append(points);
+    points.innerText = "Player: 0 ";
+
+    let enemyPoints = document.createElement('p');
+    document.querySelector('#score').append(enemyPoints);
+    enemyPoints.innerText = "Computer: 0 ";
+    
  
     runGame();
 
     // run game
     function runGame() {
         
-        imgs.forEach(img => img.addEventListener('click', () => {
+        let game = 0;
+        
+            imgs.forEach(img => img.addEventListener('click', () => {
+                
+
+                let computerSelection = getComputerChoice(choices);
+                playerSelection = img.id;
+
             
-            let computerSelection = getComputerChoice(choices);
-            let playerChoice;
+                // console.log("Computer: " + computerSelection);
+
             
-            playerChoice = img.id;
-            console.log("Computer: " + computerSelection);
-            console.log("Player: " + playerChoice);
+                computerChoice.innerText = "Computer: " + computerSelection;
+                
 
-            let winner = playRound(computerSelection, playerChoice);
+                // console.log("Player: " + playerChoice);
+                playerChoice.innerText = "Player: " + playerSelection;
 
-            console.log("Winner: " + winner); // 1 = player | 2 = computer
+                // console.log("Winner: " + winner); // 1 = player | 2 = computer
+                let winner = playRound(computerSelection, playerSelection);
 
-            if (winner == 'player') {
-                playerPoints = playerPoints + 1;
-                console.log("Player Score: " + playerPoints);
+                result.innerText = "Winner: " + winner;
 
-            }
-            else if (winner == 'computer') {
-                computerPoints = computerPoints + 1;
-                console.log("Computer Score: " + computerPoints);
-            }
+
+                if (winner == 'player') {
+                    playerPoints = playerPoints + 1;
+                    // console.log("Player Score: " + playerPoints);
+
+                    points.innerText = "Player: " + playerPoints;
+                    
+
+                }
+                else if (winner == 'computer') {
+                    computerPoints = computerPoints + 1;
+                    // console.log("Computer Score: " + computerPoints);
+
+                    enemyPoints.innerText = "Computer: " + computerPoints;
+                }
+
+
             
-        }))
+            }))
+        
     
     }
 
@@ -50,38 +90,40 @@
     }
 
     // figure out who wins a round
-    function playRound(computerSelection, playerChoice) {
+    function playRound(computerSelection, playerSelection) {
     
         // player wins
-        if (playerChoice == "rock" && computerSelection == "scissors") {
+        if (playerSelection == "rock" && computerSelection == "scissors") {
             console.log("You win! Rock beats scissors");
             return 'player';
         }
-        if (playerChoice == "paper" && computerSelection == "rock") {
+        if (playerSelection == "paper" && computerSelection == "rock") {
             console.log("You win! Paper beats rock");
             return 'player';
         }
-        if (playerChoice == "scissors" && computerSelection == "paper") {
+        if (playerSelection == "scissors" && computerSelection == "paper") {
             console.log("You win! Scissors beats paper");
             return 'player';
         }
 
         // computer wins
-        if (computerSelection == "rock" && playerChoice == "scissors") {
+        if (computerSelection == "rock" && playerSelection == "scissors") {
             console.log("You lose! Rock beats scissors");
             return 'computer';
         }
-        if (computerSelection == "paper" && playerChoice == "rock") {
+        if (computerSelection == "paper" && playerSelection == "rock") {
             console.log("You lose! Paper beats rock");
             return 'computer';
         }
-        if (computerSelection == "scissors" && playerChoice == "paper") {
+        if (computerSelection == "scissors" && playerSelection == "paper") {
             console.log("You lose! Scissors beats paper");
             return 'computer';
         }
 
-        if (playerChoice == computerSelection) {
+        if (playerSelection == computerSelection) {
             console.log("It's a tie!");
             return 'tie';
         }
     }
+
+
